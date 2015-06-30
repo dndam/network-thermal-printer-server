@@ -35,7 +35,12 @@ def clientthread(conn):
         #Receiving from client
         data = conn.recv(1024)
         reply = 'OK...' + data
-	print data
+        p = ThermalPrinter(ThermalPrinter.SERIALPORT)
+        p.print_text("\nHello maailma. How's it going?\n")
+        p.linefeed()
+        p.linefeed()
+        p.linefeed()
+
         if not data:
             break
 
